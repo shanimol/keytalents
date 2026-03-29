@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api import auth as auth_api
+from app.api import employees as employees_api
 from app.api.v1.router import router as v1_router
 from app.config import settings
 
@@ -17,6 +18,7 @@ app.add_middleware(
 
 app.include_router(v1_router)
 app.include_router(auth_api.router, prefix="/api/auth", tags=["auth"])
+app.include_router(employees_api.router, prefix="/api/employees", tags=["employees"])
 
 if settings.is_development:
     from app.api import dev as dev_api
