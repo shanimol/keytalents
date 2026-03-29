@@ -42,9 +42,7 @@ async def list_teams(
     db: AsyncSession = Depends(get_db),
     _: User = _admin,
 ):
-    result = await db.execute(
-        select(Team).where(Team.is_active.is_(True)).order_by(Team.name)
-    )
+    result = await db.execute(select(Team).order_by(Team.name))
     return result.scalars().all()
 
 

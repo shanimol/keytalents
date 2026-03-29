@@ -84,8 +84,6 @@ class EmployeeListResponse(BaseModel):
 class TeamResponse(BaseModel):
     id: UUID
     name: str
-    description: str | None
-    is_active: bool
 
     model_config = {"from_attributes": True}
 
