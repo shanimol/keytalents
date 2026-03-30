@@ -51,9 +51,7 @@ async def list_designations(
     db: AsyncSession = Depends(get_db),
     _: User = _admin,
 ):
-    result = await db.execute(
-        select(Designation).where(Designation.is_active.is_(True)).order_by(Designation.title)
-    )
+    result = await db.execute(select(Designation).order_by(Designation.name))
     return result.scalars().all()
 
 

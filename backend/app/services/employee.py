@@ -18,7 +18,6 @@ def _build_response(row: object) -> EmployeeResponse:
     emp: Employee = row[0]
     team_name: str | None = row[1]
     designation_title: str | None = row[2]
-    department: str | None = row[3]
     return EmployeeResponse(
         id=emp.id,
         employee_number=emp.employee_number,
@@ -36,7 +35,7 @@ def _build_response(row: object) -> EmployeeResponse:
         updated_at=emp.updated_at,
         team_name=team_name,
         designation_title=designation_title,
-        department=department,
+        department=None,
     )
 
 
@@ -45,8 +44,7 @@ def _joined_query():
         select(
             Employee,
             Team.name.label("team_name"),
-            Designation.title.label("designation_title"),
-            Designation.department.label("department"),
+            Designation.name.label("designation_title"),
         )
         .outerjoin(Team, Employee.team_id == Team.id)
         .outerjoin(Designation, Employee.designation_id == Designation.id)

@@ -90,8 +90,6 @@ class TeamResponse(BaseModel):
 
 class DesignationResponse(BaseModel):
     id: UUID
-    title: str
-    department: str
-    is_active: bool
+    name: str
 
     model_config = {"from_attributes": True}

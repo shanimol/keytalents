@@ -5,6 +5,7 @@ import ProtectedRoute from "@/components/ProtectedRoute"
 import LoginPage from "@/pages/LoginPage"
 import AppraisalCyclesPage from "@/pages/AppraisalCyclesPage"
 import AppraisalFormTemplatesPage from "@/pages/AppraisalFormTemplatesPage"
+import TemplateBuilderPage from "@/pages/TemplateBuilderPage"
 import DesignationsPage from "@/pages/DesignationsPage"
 import EmployeesPage from "@/pages/EmployeesPage"
 import MyAppraisalsPage from "@/pages/MyAppraisalsPage"
@@ -29,6 +30,7 @@ export default function App() {
                 <Route path="employees" element={<EmployeesPage />} />
                 <Route path="appraisal-cycles" element={<AppraisalCyclesPage />} />
                 <Route path="appraisal-form-templates" element={<AppraisalFormTemplatesPage />} />
+                <Route path="appraisal-form-templates/:id/edit" element={<TemplateBuilderPage />} />
                 <Route path="teams" element={<TeamsPage />} />
                 <Route path="designations" element={<DesignationsPage />} />
               </Route>

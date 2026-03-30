@@ -304,7 +304,7 @@ export function EmployeeForm({ open, employee, onSubmit, onClose, isLoading }: P
                   <option value="">— No Designation —</option>
                   {designations.map((d) => (
                     <option key={d.id} value={d.id}>
-                      {d.title}
+                      {d.name}
                     </option>
                   ))}
                 </select>

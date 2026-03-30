@@ -66,7 +66,5 @@ export interface Team {
 
 export interface Designation {
   id: string
-  title: string
-  department: string
-  is_active: boolean
+  name: string
 }

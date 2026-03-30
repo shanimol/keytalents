@@ -1,7 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.api import appraisal_templates as appraisal_templates_api
 from app.api import auth as auth_api
+from app.api import designations as designations_api
 from app.api import employees as employees_api
 from app.api import teams as teams_api
 from app.api.v1.router import router as v1_router
@@ -21,6 +23,8 @@ app.include_router(v1_router)
 app.include_router(auth_api.router, prefix="/api/auth", tags=["auth"])
 app.include_router(employees_api.router, prefix="/api/employees", tags=["employees"])
 app.include_router(teams_api.router, prefix="/api/teams", tags=["teams"])
+app.include_router(designations_api.router, prefix="/api/designations", tags=["designations"])
+app.include_router(appraisal_templates_api.router, prefix="/api/appraisal-templates", tags=["appraisal-templates"])
 
 if settings.is_development:
     from app.api import dev as dev_api
